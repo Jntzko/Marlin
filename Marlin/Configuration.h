@@ -1044,7 +1044,8 @@
  * E2...]]
  */
 #define DEFAULT_AXIS_STEPS_PER_UNIT                                            \
-  { 80, 80, 400, 93 }
+  { 160, 160, 80, 93 } // this fits for 0.25 Unit per mm -> faster, Yannick
+//  { 40, 40, 80, 93 } // this fits for 1 Unit per mm, Yannick
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1053,13 +1054,13 @@
  * E2...]]
  */
 #define DEFAULT_MAX_FEEDRATE                                                   \
-  { 500, 500, 5, 25 }
+  { 500, 500, 500, 25 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to
 //DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
 #define MAX_FEEDRATE_EDIT_VALUES                                               \
-  { 600, 600, 10, 50 } // ...or, set your own edit limits
+  { 600, 600, 600, 50 } // ...or, set your own edit limits
 #endif
 
 /**
@@ -1330,7 +1331,7 @@
 
 // Feedrate (mm/min) for the first approach when double-probing
 // (MULTIPLE_PROBING == 2)
-#define Z_PROBE_FEEDRATE_FAST (4 * 60)
+#define Z_PROBE_FEEDRATE_FAST (133 * 60)
 
 // Feedrate (mm/min) for the "accurate" probe of each point
 #define Z_PROBE_FEEDRATE_SLOW (Z_PROBE_FEEDRATE_FAST / 2)
@@ -1469,7 +1470,7 @@
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an
 // axis goes the wrong way.
-#define INVERT_X_DIR true
+#define INVERT_X_DIR false
 #define INVERT_Y_DIR true
 #define INVERT_Z_DIR false
 //#define INVERT_I_DIR false
@@ -1521,8 +1522,11 @@
 // @section machine
 
 // The size of the printable area
-#define X_BED_SIZE 235
-#define Y_BED_SIZE 235
+//#define X_BED_SIZE 446  // one unit per mm, adjust steps, Yannick
+//#define Y_BED_SIZE 195  //
+#define X_BED_SIZE 111  // four units per mm, adjust steps, Yannick
+#define Y_BED_SIZE 48  //
+
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -1923,7 +1927,7 @@
 
 // Homing speeds (mm/min)
 #define HOMING_FEEDRATE_MM_M                                                   \
-  { (20 * 60), (20 * 60), (4 * 60) }
+  { (20 * 60), (20 * 60), (20 * 60) }
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
@@ -2001,7 +2005,7 @@
  *   M502 - Revert settings to "factory" defaults. (Follow with M500 to init the
  * EEPROM.)
  */
-#define EEPROM_SETTINGS // Persistent storage with M500 and M501
+//#define EEPROM_SETTINGS // Persistent storage with M500 and M501
 //#define DISABLE_M503        // Saves ~2700 bytes of PROGMEM. Disable for
 //release!
 #define EEPROM_CHITCHAT    // Give feedback on EEPROM commands. Disable to save

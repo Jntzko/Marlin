@@ -74,13 +74,13 @@
 #define X_STEP_PIN                          PB13
 #define X_DIR_PIN                           PB12
 
-#define Y_ENABLE_PIN                        PB11
-#define Y_STEP_PIN                          PB10
-#define Y_DIR_PIN                           PB2
+#define Y_ENABLE_PIN                        PB1   // PB11
+#define Y_STEP_PIN                          PB0   // PB10
+#define Y_DIR_PIN                           PC5   // PB2
 
-#define Z_ENABLE_PIN                        PB1
-#define Z_STEP_PIN                          PB0
-#define Z_DIR_PIN                           PC5
+#define Z_ENABLE_PIN                        PB11  // PB1
+#define Z_STEP_PIN                          PB10  // PB0
+#define Z_DIR_PIN                           PB2   // PC5
 
 #define E0_ENABLE_PIN                       PD2
 #define E0_STEP_PIN                         PB3
