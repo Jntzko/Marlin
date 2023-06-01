@@ -1236,8 +1236,7 @@
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
 #define DEFAULT_AXIS_STEPS_PER_UNIT                                            \
-  { 160, 160, 8.88, 1.11 } // this fits for 0.25 Unit per mm -> faster, Yannick Z is steps per degree
-//  { 40, 40, 80, 93 } // this fits for 1 Unit per mm, Yannick
+  { 40, 40, 80, 93 } // this fits for 1 Unit per mm, Yannick
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
@@ -1245,7 +1244,7 @@
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
 #define DEFAULT_MAX_FEEDRATE                                                   \
-  { 500, 500, 5000, 5000 }
+  { 1000, 1000, 5000, 5000 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -1260,7 +1259,7 @@
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
 #define DEFAULT_MAX_ACCELERATION                                               \
-  { 250, 250, 500, 250 }
+  { 3000, 3000, 500, 250 }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -1279,7 +1278,7 @@
   250 // X, Y, Z and E acceleration for printing moves
 #define DEFAULT_RETRACT_ACCELERATION 250 // E acceleration for retracts
 #define DEFAULT_TRAVEL_ACCELERATION                                            \
-  250 // X, Y, Z acceleration for travel (non printing) moves
+  3000 // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk limits (mm/s)
@@ -1778,10 +1777,8 @@
 // @section geometry
 
 // The size of the printable area
-//#define X_BED_SIZE 446  // one unit per mm, adjust steps, Yannick
-//#define Y_BED_SIZE 195  //
-#define X_BED_SIZE 111  // four units per mm, adjust steps, Yannick
-#define Y_BED_SIZE 48  //
+#define X_BED_SIZE 472  // one units per mm, adjust steps, Yannick
+#define Y_BED_SIZE 260  //
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -2249,7 +2246,7 @@
 
 // Homing speeds (mm/min)
 #define HOMING_FEEDRATE_MM_M                                                   \
-  { (20 * 60), (20 * 60), (20 * 60) }
+  { (100 * 60), (100 * 60), (20 * 60) }
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
